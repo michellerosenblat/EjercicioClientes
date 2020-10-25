@@ -57,9 +57,9 @@
             // 
             this.lstClientes.FormattingEnabled = true;
             this.lstClientes.ItemHeight = 20;
-            this.lstClientes.Location = new System.Drawing.Point(236, 243);
+            this.lstClientes.Location = new System.Drawing.Point(138, 246);
             this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(120, 84);
+            this.lstClientes.Size = new System.Drawing.Size(441, 144);
             this.lstClientes.TabIndex = 2;
             this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 

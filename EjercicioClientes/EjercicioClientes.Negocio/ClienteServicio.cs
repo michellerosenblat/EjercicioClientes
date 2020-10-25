@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EjercicioClientes.Datos;
 using EjercicioClientes.Entidades;
+using EjercicioClientes.Entidades.Excepciones;
 
 namespace EjercicioClientes.Negocio
 {
@@ -34,33 +35,28 @@ namespace EjercicioClientes.Negocio
 
         }
 
-       /* public int InsertarCliente(string nombre, string apellido, string direccion)
+        public bool ExisteElCliente (Cliente cliente)
         {
-            // antes validar con el get si existe ese dni/apellido-nombre
-            List<Cliente> result = mapper.TraerTodos();
+            List<Cliente> clientes = TraerClientes();
+           return clientes.Any(c => c.Equals(cliente));
+        }
 
-            Cliente cliente = new Cliente();
-            cliente.Apellido = apellido;
-            cliente.Nombre = nombre;
-            cliente.Direccion = direccion;
-
-            foreach (var item in result)
+        public int InsertarCliente(Cliente cliente)
+        {
+           if (ExisteElCliente(cliente))
             {
-                if (item.ToString() == cliente.ToString())
-                    throw new Exception("El cliente ya existe");
+                throw new ClienteExistenteException(cliente.ID);
+            }
+           else
+            {
+                TransactionResult resultante = mapper.Insert(cliente);
+                if (resultante.IsOk)
+                    return resultante.Id;
+                else
+
+                    throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
             }
 
-            // ya pasamos las validaciones, persistimos el cliente
-            TransactionResult resultante = mapper.Insert(cliente);
-
-            if (resultante.IsOk)
-                return resultante.Id;
-            //return TraerClientesPorId(resultante.Id);
-            else
-
-                throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
-
-
-        }*/
+        }
     }
 }

@@ -15,15 +15,19 @@ namespace EjercicioClientes
     public partial class Menu : Form
     {
         private ClienteServicio cliente;
+        private AltaClienteForm altaClienteForm;
         public Menu()
         {
             InitializeComponent();
             cliente = new ClienteServicio();
+            altaClienteForm = new AltaClienteForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
+        { 
+            altaClienteForm.Owner = this;
+            altaClienteForm.Show();
+            this.Hide();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

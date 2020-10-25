@@ -14,13 +14,13 @@ namespace EjercicioClientes.Entidades
         private string apellido;
         private string direccion;
         private string email;
-        private int telefono;
+        private string telefono;
         private int dni;
         private int id;
         private DateTime fechaNacimiento;
         private bool activo;
 
-        public Cliente (string nombre, string apellido, string direccion, string email, int telefono, int dni, DateTime fechaNacimiento, bool activo)
+        public Cliente (string nombre, string apellido, string direccion, string email, string telefono, int dni, DateTime fechaNacimiento, bool activo)
         {
             this.nombre = nombre;
             this.apellido = apellido;
@@ -30,6 +30,14 @@ namespace EjercicioClientes.Entidades
             this.dni = dni;
             this.fechaNacimiento = fechaNacimiento;
             this.activo = activo;
+        }
+
+        public Cliente (string nombre, string apellido, string direccion, string telefono)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.direccion = direccion;
+            this.telefono = telefono;
         }
         public string Nombre
         {
@@ -77,7 +85,7 @@ namespace EjercicioClientes.Entidades
             }
         }
 
-        public int Telefono
+        public string Telefono
         {
             get
             {
@@ -125,6 +133,16 @@ namespace EjercicioClientes.Entidades
             return id + 1;
         }
 
+        public override string ToString()
+        {
+            return nombre + " " + apellido + " " + direccion;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return (obj != null && obj is Cliente && this.id == ((Cliente)obj).ID);
+
+        }
 
     }
 }

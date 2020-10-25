@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="Excepciones\ClienteExistenteException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionResult.cs" />
   </ItemGroup>
