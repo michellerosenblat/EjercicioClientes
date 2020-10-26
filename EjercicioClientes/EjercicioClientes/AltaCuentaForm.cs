@@ -31,7 +31,7 @@ namespace EjercicioClientes
             if (clienteServicio.TraerClientesPorId(idCliente) != null)
             {
                 try { 
-                Cuenta cuenta = new Cuenta(cuentaServicio.ProximoIdCuenta(), txtDescripcion.Text, idCliente, cuentaServicio.ProximoId());
+                Cuenta cuenta = new Cuenta(cuentaServicio.ProximoIdCuenta(), txtDescripcion.Text, idCliente);
                 cuentaServicio.IngresarCuenta(cuenta);
                     MessageBox.Show("Se ingreso correctamente la cuenta");
                     BorrarCampos();

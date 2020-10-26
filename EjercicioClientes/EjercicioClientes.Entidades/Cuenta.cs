@@ -42,14 +42,14 @@ namespace EjercicioClientes.Entidades
             this.fechaApertura = fechaApertura;
             this.fechaModificacion = fechaModificacion;
         }
-        public Cuenta(int nroCuenta, string descripcion, int idCliente, int id)
+        public Cuenta(int nroCuenta, string descripcion, int idCliente)
         {
             this.nroCuenta = nroCuenta;
             this.descripcion = descripcion;
             this.saldo = 0;
             this.activo = true;
             this.idCliente = idCliente;
-            this.id = id;
+            //this.id = id;
             this.fechaApertura = DateTime.Now;
             this.fechaModificacion = DateTime.Now;
         }

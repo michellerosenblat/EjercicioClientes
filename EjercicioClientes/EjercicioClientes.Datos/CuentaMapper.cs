@@ -35,14 +35,14 @@ namespace EjercicioClientes.Datos
         {
             //esto hay que hacerlo en orden? mapeo solo los datos que me interesan?
             NameValueCollection n = new NameValueCollection();
-            n.Add("nroCuenta", cuenta.NroCuenta.ToString());
-            n.Add("descripcion", cuenta.Descripcion);
-            n.Add("saldo", cuenta.Saldo.ToString());
-            n.Add("fechaApertura", cuenta.FechaApertura.ToShortDateString()); // DateTime
-            n.Add("fechaModificacion", cuenta.FechaModificacion.ToShortDateString()); // DateTime
+            n.Add("NroCuenta", cuenta.NroCuenta.ToString());
+            n.Add("Descripcion", cuenta.Descripcion);
+            n.Add("Saldo", cuenta.Saldo.ToString());
+            //n.Add("FechaApertura", cuenta.FechaApertura.ToShortDateString()); // DateTime
+            //n.Add("FechaModificacion", cuenta.FechaModificacion.ToShortDateString()); // DateTime
             n.Add("Activo", cuenta.Activo.ToString()); // bool
             n.Add("idCliente", cuenta.IdCliente.ToString()); // STRING
-            n.Add("id", cuenta.Id.ToString()); // INT
+            //n.Add("id", cuenta.Id.ToString()); // INT
             return n;
         }
 
