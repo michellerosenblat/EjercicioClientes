@@ -22,7 +22,7 @@ namespace EjercicioClientes
         {
             InitializeComponent();
             servicio = new ClienteServicio();
-            menu = new Menu();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace EjercicioClientes
 
         private void AltaClienteForm_Load(object sender, EventArgs e)
         {
-
+            menu = new Menu();
         }
 
         private void button1_Click(object sender, EventArgs e)

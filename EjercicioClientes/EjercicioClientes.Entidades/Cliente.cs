@@ -14,13 +14,21 @@ namespace EjercicioClientes.Entidades
     {
         [DataMember]
         private string nombre;
+        [DataMember]
         private string apellido;
+        [DataMember]
         private string direccion;
+        [DataMember]
         private string email;
+        [DataMember]
         private string telefono;
+        [DataMember]
         private int dni;
+        [DataMember]
         private int id;
+        [DataMember]
         private DateTime fechaNacimiento;
+        [DataMember]
         private bool activo;
 
         public Cliente ()

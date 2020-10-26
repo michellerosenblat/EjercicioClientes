@@ -3,4 +3,3 @@ C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioCli
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes.Entidades\obj\Debug\EjercicioClientes.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes.Entidades\obj\Debug\EjercicioClientes.Entidades.dll
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes.Entidades\obj\Debug\EjercicioClientes.Entidades.pdb
-C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes.Entidades\obj\Debug\EjercicioClientes.Entidades.csprojAssemblyReference.cache
