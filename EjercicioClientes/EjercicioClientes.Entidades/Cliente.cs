@@ -3,13 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EjercicioClientes.Entidades
 {
+    [DataContract]
     public class Cliente
     {
+        [DataMember]
         private string nombre;
         private string apellido;
         private string direccion;
@@ -20,6 +23,10 @@ namespace EjercicioClientes.Entidades
         private DateTime fechaNacimiento;
         private bool activo;
 
+        public Cliente ()
+        {
+
+        }
         public Cliente (string nombre, string apellido, string direccion, string email, string telefono, int dni, DateTime fechaNacimiento, bool activo)
         {
             this.nombre = nombre;
@@ -32,8 +39,9 @@ namespace EjercicioClientes.Entidades
             this.activo = activo;
         }
 
-        public Cliente (string nombre, string apellido, string direccion, string telefono)
+        public Cliente (int id, string nombre, string apellido, string direccion, string telefono)
         {
+            this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.direccion = direccion;
@@ -126,11 +134,6 @@ namespace EjercicioClientes.Entidades
             {
                 return this.id;
             }
-        }
-
-        public int ProximoID()
-        {
-            return id + 1;
         }
 
         public override string ToString()

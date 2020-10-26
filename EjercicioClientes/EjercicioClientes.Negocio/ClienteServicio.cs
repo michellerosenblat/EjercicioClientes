@@ -41,7 +41,7 @@ namespace EjercicioClientes.Negocio
            return clientes.Any(c => c.Equals(cliente));
         }
 
-        public int InsertarCliente(Cliente cliente)
+        public void InsertarCliente(Cliente cliente)
         {
            if (ExisteElCliente(cliente))
             {
@@ -50,13 +50,18 @@ namespace EjercicioClientes.Negocio
            else
             {
                 TransactionResult resultante = mapper.Insert(cliente);
-                if (resultante.IsOk)
-                    return resultante.Id;
-                else
-
+                if (!resultante.IsOk)
                     throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
+                
+
+                    
             }
 
+        }
+        public int ProximoId()
+        {
+            List<Cliente> c = TraerClientes();
+            return c.Max(cliente => cliente.ID) + 1;
         }
     }
 }
