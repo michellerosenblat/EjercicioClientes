@@ -18,3 +18,4 @@ C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioCli
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.exe
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.pdb
 C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.AltaClienteForm.resources
+C:\Users\Michu\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.AltaCuentaForm.resources
