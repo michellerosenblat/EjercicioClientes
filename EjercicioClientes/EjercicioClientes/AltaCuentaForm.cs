@@ -17,7 +17,6 @@ namespace EjercicioClientes
     {
         private ClienteServicio clienteServicio;
         private CuentaServicio cuentaServicio;
-        private Menu menu;
         public AltaCuentaForm()
         {
             InitializeComponent();
@@ -27,37 +26,55 @@ namespace EjercicioClientes
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int idCliente = Validacion.EsInt(txtIdCliente.Text);
-            if (clienteServicio.TraerClientesPorId(idCliente) != null)
-            {
-                try { 
-                Cuenta cuenta = new Cuenta(cuentaServicio.ProximoIdCuenta(), txtDescripcion.Text, idCliente);
+            try {
+                if (!string.IsNullOrEmpty(this.Errores))
+                    throw new FormatException("Error en los campos: " + "\n" + this.Errores);
+                Cuenta cuenta = new Cuenta(cuentaServicio.ProximoIdCuenta(), txtDescripcion.Text, ((Cliente)cmbClientes.SelectedItem).ID);
                 cuentaServicio.IngresarCuenta(cuenta);
                     MessageBox.Show("Se ingreso correctamente la cuenta");
                     BorrarCampos();
                 }
-                catch (CuentaExistenteException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            catch (CuentaExistenteException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+            catch (FormatException fex)
+            {
+                MessageBox.Show(fex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void AltaCuentaForm_Load(object sender, EventArgs e)
         {
-            menu = new Menu();
+            //crear un servicio para traer solo los cliente sin cuentas
+            cmbClientes.DataSource = clienteServicio.TraerClientes();
+            BorrarCampos();
+        }
+
+        private string Errores
+        {
+            get
+            {
+                return (Validacion.ValidarString(txtDescripcion.Text, "Descripción de cuenta") +
+                        Validacion.ValidarComboBox(cmbClientes.SelectedIndex, "Cliente"));
+            }
         }
 
         public void BorrarCampos()
         {
             txtDescripcion.Clear();
-            txtIdCliente.Clear();
+            cmbClientes.SelectedIndex = -1;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            menu.Show();
-            this.Close();
+            this.Owner.Show();
+            this.Hide();
         }
     }
 }

@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -61,13 +61,6 @@
             this.txtDescripcion.Size = new System.Drawing.Size(100, 26);
             this.txtDescripcion.TabIndex = 2;
             // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(240, 174);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(100, 26);
-            this.txtIdCliente.TabIndex = 3;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(240, 267);
@@ -88,14 +81,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cmbClientes
+            // 
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(240, 182);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(121, 28);
+            this.cmbClientes.TabIndex = 6;
+            // 
             // AltaCuentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbClientes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -112,8 +113,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbClientes;
     }
 }

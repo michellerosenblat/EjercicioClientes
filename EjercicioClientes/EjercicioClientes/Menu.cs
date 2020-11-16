@@ -16,19 +16,16 @@ namespace EjercicioClientes
     {
         private ClienteServicio cliente;
         private CuentaServicio cuenta;
-        private AltaClienteForm altaClienteForm;
-        private AltaCuentaForm altaCuentaForm;
         public Menu()
         {
             InitializeComponent();
             cliente = new ClienteServicio();
             cuenta = new CuentaServicio();
-            altaClienteForm = new AltaClienteForm();
-            altaCuentaForm = new AltaCuentaForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AltaClienteForm altaClienteForm = new AltaClienteForm();
             altaClienteForm.Owner = this;
             altaClienteForm.Show();
             this.Hide();
@@ -51,6 +48,7 @@ namespace EjercicioClientes
 
         private void btnAltaCuenta_Click(object sender, EventArgs e)
         {
+            AltaCuentaForm altaCuentaForm = new AltaCuentaForm();
             altaCuentaForm.Owner = this;
             altaCuentaForm.Show();
             this.Hide();
@@ -59,6 +57,14 @@ namespace EjercicioClientes
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPrestamos_Click(object sender, EventArgs e)
+        {
+            PrestamosForm prestamosForm = new PrestamosForm();
+            prestamosForm.Owner = this;
+            prestamosForm.Show();
+            this.Hide();
         }
     }
 }

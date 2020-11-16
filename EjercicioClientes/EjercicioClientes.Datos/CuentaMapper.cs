@@ -33,7 +33,6 @@ namespace EjercicioClientes.Datos
 
         private NameValueCollection ReverseMap(Cuenta cuenta)
         {
-            //esto hay que hacerlo en orden? mapeo solo los datos que me interesan?
             NameValueCollection n = new NameValueCollection();
             n.Add("NroCuenta", cuenta.NroCuenta.ToString());
             n.Add("Descripcion", cuenta.Descripcion);

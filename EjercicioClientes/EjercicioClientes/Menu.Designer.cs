@@ -34,6 +34,7 @@
             this.btnAltaCuenta = new System.Windows.Forms.Button();
             this.btnListarCuentas = new System.Windows.Forms.Button();
             this.lstCuentas = new System.Windows.Forms.ListBox();
+            this.btnPrestamos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // altaClientes
@@ -95,11 +96,22 @@
             this.lstCuentas.Size = new System.Drawing.Size(441, 144);
             this.lstCuentas.TabIndex = 5;
             // 
+            // btnPrestamos
+            // 
+            this.btnPrestamos.Location = new System.Drawing.Point(189, 430);
+            this.btnPrestamos.Name = "btnPrestamos";
+            this.btnPrestamos.Size = new System.Drawing.Size(124, 46);
+            this.btnPrestamos.TabIndex = 6;
+            this.btnPrestamos.Text = "Préstamos";
+            this.btnPrestamos.UseVisualStyleBackColor = true;
+            this.btnPrestamos.Click += new System.EventHandler(this.btnPrestamos_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 430);
+            this.ClientSize = new System.Drawing.Size(1129, 575);
+            this.Controls.Add(this.btnPrestamos);
             this.Controls.Add(this.lstCuentas);
             this.Controls.Add(this.btnListarCuentas);
             this.Controls.Add(this.btnAltaCuenta);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.Button btnAltaCuenta;
         private System.Windows.Forms.Button btnListarCuentas;
         private System.Windows.Forms.ListBox lstCuentas;
+        private System.Windows.Forms.Button btnPrestamos;
     }
 }
 

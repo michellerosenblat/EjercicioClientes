@@ -42,13 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Cuenta.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Cuenta.cs" />
+    <Compile Include="Entidades\Operador.cs" />
+    <Compile Include="Entidades\Prestamo.cs" />
+    <Compile Include="Entidades\TipoPrestamo.cs" />
     <Compile Include="Excepciones\ClienteExistenteException.cs" />
     <Compile Include="Excepciones\CuentaExistenteException.cs" />
     <Compile Include="Excepciones\NoEsDatoEsperadoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionResult.cs" />
+    <Compile Include="Entidades\TransactionResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

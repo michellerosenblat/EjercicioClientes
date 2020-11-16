@@ -17,7 +17,6 @@ namespace EjercicioClientes
     public partial class AltaClienteForm : Form
     {
         ClienteServicio servicio;
-        Menu menu;
         public AltaClienteForm()
         {
             InitializeComponent();
@@ -34,21 +33,41 @@ namespace EjercicioClientes
         {
 
         }
-
+        private string Errores
+        {
+            get
+            {
+                return (Validacion.ValidarString(txtNombre.Text, "Nombre") +
+                        Validacion.ValidarString(txtApellido.Text, "Apellido") +
+                        Validacion.ValidarString(txtDireccion.Text, "Dirección") +
+                        Validacion.ValidarNumero(txtTelefono.Text, "Teléfono"));
+            }
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try {
-             int id= servicio.ProximoId();
-            List <Cliente> clientes = servicio.TraerClientes();
-            Cliente cliente = new Cliente(id, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text);
-                servicio.InsertarCliente(cliente);
-            MessageBox.Show("Se dio de alta el cliente");
+                if (!string.IsNullOrEmpty(this.Errores))
+                    throw new FormatException("Error en los campos: " + "\n" + this.Errores);
+                servicio.InsertarCliente(CrearCliente());
+                MessageBox.Show("Se ha ingresado correctamente el cliente");
                 BorrarCampos();
             }
             catch (ClienteExistenteException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            catch (FormatException fex)
+            {
+                MessageBox.Show(fex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private Cliente CrearCliente()
+        {
+            return new Cliente(servicio.ProximoId(), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text);
         }
 
         public void BorrarCampos()
@@ -61,13 +80,12 @@ namespace EjercicioClientes
 
         private void AltaClienteForm_Load(object sender, EventArgs e)
         {
-            menu = new Menu();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            menu.Show();
+            this.Owner.Show();
+            this.Hide();
         }
     }
 }
