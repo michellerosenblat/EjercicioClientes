@@ -12,19 +12,26 @@ namespace EjercicioClientes.Entidades.Entidades
         private double comision;
         private double porcentajeComision;
 
-        public Operador(double comision)
+        public Operador()
         {
             prestamos = new List<Prestamo>();
-
+            CalcularPorcentajeComision();
         }
-        public double DefinirComision()
+        public void CalcularPorcentajeComision()
         {
             double interes = 0;
             foreach (Prestamo prestamo in prestamos)
             {
                 interes += prestamo.CuotaInteres();
             }
-            return interes * 0.15;
+            porcentajeComision= interes * 0.15;
+        }
+        public double PorcentajeComision
+        {
+            get
+            {
+                return this.porcentajeComision;
+            }
         }
     }
 }

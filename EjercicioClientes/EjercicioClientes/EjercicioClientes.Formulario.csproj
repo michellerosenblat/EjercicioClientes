@@ -58,17 +58,17 @@
     <Compile Include="AltaCuentaForm.Designer.cs">
       <DependentUpon>AltaCuentaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrestamoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrestamoForm.Designer.cs">
+      <DependentUpon>PrestamoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PrestamosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrestamosForm.Designer.cs">
-      <DependentUpon>PrestamosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +82,8 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrestamosForm.resx">
-      <DependentUpon>PrestamosForm.cs</DependentUpon>
+    <EmbeddedResource Include="PrestamoForm.resx">
+      <DependentUpon>PrestamoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

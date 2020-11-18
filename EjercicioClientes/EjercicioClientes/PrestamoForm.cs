@@ -12,13 +12,15 @@ using System.Windows.Forms;
 
 namespace EjercicioClientes
 {
-    public partial class PrestamosForm : Form
+    public partial class PrestamoForm : Form
     {
         private TipoPrestamoServicio tpservicio;
-        public PrestamosForm()
+        private PrestamoServicio prestamoServ;
+        public PrestamoForm()
         {
             InitializeComponent();
             tpservicio = new TipoPrestamoServicio();
+            prestamoServ = new PrestamoServicio();
             lstTipoPrestamos.ClearSelected();
         }
         public string Errores
@@ -31,10 +33,17 @@ namespace EjercicioClientes
             }
         }
 
-        private void PrestamosForm_Load(object sender, EventArgs e)
+        private void PrestamoForm_Load(object sender, EventArgs e)
         {
             LimpiarSeleccion();
+            ActualizarListaPrestamos();
         }
+
+        private void ActualizarListaPrestamos()
+        {
+            lstPrestamos.DataSource = prestamoServ.GetPrestamos();
+        }
+
         private TipoPrestamo ObtenerTipoPrestamoSeleccionado()
         {
             return (TipoPrestamo)lstTipoPrestamos.SelectedItem;
@@ -44,10 +53,9 @@ namespace EjercicioClientes
         {
             try
             {
-                if (!string.IsNullOrEmpty(this.Errores))
-                    throw new FormatException("Error en los campos " + "\n" + this.Errores);
+                VerificarErrores();
 
-                Prestamo simulacro = new Prestamo(ObtenerTipoPrestamoSeleccionado(), Convert.ToDouble(txtMonto.Text), Convert.ToInt32(txtPlazo.Text));
+                Prestamo simulacro = DevolverPrestamoSegunDatos();
                 txtCapital.Text = (simulacro.CuotaCapital()).ToString();
                 txtInteres.Text = simulacro.CuotaInteres().ToString();
                 txtCuota.Text = simulacro.Cuota().ToString();
@@ -57,6 +65,7 @@ namespace EjercicioClientes
             {
 
                 MessageBox.Show(fex.Message);
+                MessageBox.Show(fex.Message);
             }
             catch (Exception ex)
             {
@@ -65,17 +74,12 @@ namespace EjercicioClientes
             }
         }
 
-        private void lstTipoPrestamos_SelectedIndexChanged(object sender, EventArgs e)
+        private void VerificarErrores()
         {
-            TipoPrestamo tp = ObtenerTipoPrestamoSeleccionado();
-            if (tp != null)
-            {
-                txtLinea.Text = tp.Linea;
-                txtTNA.Text = tp.TNA.ToString();
-                txtMonto.Enabled = true;
-                txtPlazo.Enabled = true;
-            }
+            if (!string.IsNullOrEmpty(this.Errores))
+                throw new FormatException("Error en los campos " + "\n" + this.Errores);
         }
+
         private void LimpiarSeleccion()
         {
             lstTipoPrestamos.DataSource = tpservicio.GetTipoPrestamo();
@@ -87,16 +91,59 @@ namespace EjercicioClientes
             txtMonto.Text = string.Empty;
             txtPlazo.Text = string.Empty;
 
+            txtCapital.Text = string.Empty;
+            txtCuota.Text = string.Empty;
+            txtInteres.Text = string.Empty;
+
             txtTNA.Enabled = false;
             txtLinea.Enabled = false;
 
             txtMonto.Enabled = false;
             txtPlazo.Enabled = false;
+
+            txtCapital.Enabled = false;
+            txtCuota.Enabled = false;
+            txtInteres.Enabled = false;
+        }
+
+        private void lstTipoPrestamos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            TipoPrestamo tp = ObtenerTipoPrestamoSeleccionado();
+            if (tp != null)
+            {
+                txtLinea.Text = tp.Linea;
+                txtTNA.Text = tp.TNA.ToString();
+                txtMonto.Enabled = true;
+                txtPlazo.Enabled = true;
+            }
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-           
+            try { 
+            VerificarErrores();
+                Prestamo p = DevolverPrestamoSegunDatos();
+            prestamoServ.InsertarPrestamo(p);
+                MessageBox.Show("Se ha agregado correctamente el prestamo");
+                LimpiarSeleccion();
+                ActualizarListaPrestamos(); 
+            }
+            catch (FormatException fex)
+            {
+
+                MessageBox.Show(fex.Message);
+                MessageBox.Show(fex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+        private Prestamo DevolverPrestamoSegunDatos()
+        {
+            return new Prestamo(ObtenerTipoPrestamoSeleccionado(), Convert.ToDouble(txtMonto.Text), Convert.ToInt32(txtPlazo.Text));
         }
     }
-}
+    }
+

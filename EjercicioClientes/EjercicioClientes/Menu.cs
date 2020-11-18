@@ -61,7 +61,7 @@ namespace EjercicioClientes
 
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-            PrestamosForm prestamosForm = new PrestamosForm();
+            PrestamoForm prestamosForm = new PrestamoForm();
             prestamosForm.Owner = this;
             prestamosForm.Show();
             this.Hide();

@@ -29,7 +29,7 @@ namespace EjercicioClientes.Datos
         public TransactionResult Insert (Prestamo prestamo)
         {
             NameValueCollection obj = ReverseMap(prestamo);
-            string result = WebHelper.Post("/cliente", obj);
+            string result = WebHelper.Post("/prestamo", obj);
             return MapResultado(result);
 
         }
