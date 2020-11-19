@@ -11,6 +11,15 @@ namespace EjercicioClientes.Entidades.Entidades
         private string linea;
         private double tna;
 
+        public TipoPrestamo()
+        {
+
+        }
+        public TipoPrestamo(double tna, string linea)
+        {
+            this.tna = tna;
+            this.linea = linea;
+        }
         public string Linea
         {
             get

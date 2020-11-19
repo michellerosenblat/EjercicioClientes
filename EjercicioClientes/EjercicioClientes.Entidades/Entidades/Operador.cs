@@ -6,32 +6,27 @@ using System.Threading.Tasks;
 
 namespace EjercicioClientes.Entidades.Entidades
 {
-    public class Operador
+    public static class Operador
     {
-        private List<Prestamo> prestamos;
-        private double comision;
-        private double porcentajeComision;
+        private static int comision;
+        private static double porcentajeComision;
 
-        public Operador()
+        static Operador()
         {
-            prestamos = new List<Prestamo>();
-            CalcularPorcentajeComision();
+            porcentajeComision = 0.15;
         }
-        public void CalcularPorcentajeComision()
+        public static double CalcularComisionDe (List <Prestamo> prestamos)
         {
             double interes = 0;
             foreach (Prestamo prestamo in prestamos)
             {
                 interes += prestamo.CuotaInteres();
             }
-            porcentajeComision= interes * 0.15;
-        }
-        public double PorcentajeComision
-        {
-            get
-            {
-                return this.porcentajeComision;
+                return interes* porcentajeComision;
             }
+           
         }
+        
+      
     }
-}
+

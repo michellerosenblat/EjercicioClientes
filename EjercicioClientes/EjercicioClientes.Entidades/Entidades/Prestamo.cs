@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioClientes.Entidades.Entidades
 {
-   public class Prestamo
+    public class Prestamo
     {
         private TipoPrestamo tipoPrestamo;
         private int plazo;
@@ -14,6 +14,7 @@ namespace EjercicioClientes.Entidades.Entidades
         private string usuario;
         private int idCliente;
 
+        public Prestamo() { }
         public Prestamo(TipoPrestamo tipoPrestamo, double monto, int plazo)
         {
             this.tipoPrestamo = tipoPrestamo;
@@ -27,6 +28,14 @@ namespace EjercicioClientes.Entidades.Entidades
             this.plazo = plazo;
             this.idCliente = idCliente;
         }
+        public Prestamo (double monto, int plazo, int idCliente, double tna, string linea)
+        {
+            this.monto = monto;
+            this.plazo = plazo;
+            this.idCliente = idCliente;
+            this.tipoPrestamo = new TipoPrestamo(tna, linea);
+        }
+    
         public TipoPrestamo TipoPrest
         {
             get
@@ -93,6 +102,10 @@ namespace EjercicioClientes.Entidades.Entidades
         public double Cuota()
         {
             return CuotaCapital() + CuotaInteres();
+        }
+        public override string ToString()
+        {
+            return "Plazo: " + plazo + " monto: " + monto;
         }
     }
 }

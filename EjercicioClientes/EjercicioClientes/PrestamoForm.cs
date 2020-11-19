@@ -3,6 +3,7 @@ using EjercicioClientes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,12 +17,15 @@ namespace EjercicioClientes
     {
         private TipoPrestamoServicio tpservicio;
         private PrestamoServicio prestamoServ;
+        private List<Prestamo> prestamos;
         public PrestamoForm()
         {
             InitializeComponent();
             tpservicio = new TipoPrestamoServicio();
             prestamoServ = new PrestamoServicio();
-            lstTipoPrestamos.ClearSelected();
+            //lstTipoPrestamos.ClearSelected();
+            prestamos = new List<Prestamo>();
+          
         }
         public string Errores
         {
@@ -37,11 +41,14 @@ namespace EjercicioClientes
         {
             LimpiarSeleccion();
             ActualizarListaPrestamos();
+            txtComision.Enabled = false;
         }
 
         private void ActualizarListaPrestamos()
         {
-            lstPrestamos.DataSource = prestamoServ.GetPrestamos();
+            prestamos = prestamoServ.GetPrestamos();
+            lstPrestamos.DataSource = prestamos;
+            txtComision.Text = Operador.CalcularComisionDe(prestamos).ToString();
         }
 
         private TipoPrestamo ObtenerTipoPrestamoSeleccionado()

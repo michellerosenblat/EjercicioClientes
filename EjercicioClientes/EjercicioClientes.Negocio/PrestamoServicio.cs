@@ -16,6 +16,7 @@ namespace EjercicioClientes.Negocio
         public PrestamoServicio()
         {
             prestamoMapper = new PrestamoMapper();
+            RefrescarCache();
         }
         private void RefrescarCache()
         {
