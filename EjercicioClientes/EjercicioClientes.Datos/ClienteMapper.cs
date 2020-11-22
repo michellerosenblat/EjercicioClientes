@@ -14,7 +14,7 @@ namespace EjercicioClientes.Datos
     {
         public List<Cliente> TraerTodos()
         {
-            string json2 = WebHelper.Get("/cliente"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("/cliente/888593"); // trae un texto en formato json de una web
             return MapList(json2);
             //devuelve toda la lista de clientes
         }
@@ -25,7 +25,12 @@ namespace EjercicioClientes.Datos
             return MapResultado(result);
             //devuelve el resultado de la transaccion
         }
-
+        public TransactionResult Update (Cliente cliente)
+        {
+            NameValueCollection obj = ReverseMap(cliente);
+            string result = WebHelper.Put("/cliente", obj);
+            return MapResultado(result);
+        }
         private List<Cliente> MapList(string json)
         {
             //devuelve el json deserializado
@@ -39,9 +44,10 @@ namespace EjercicioClientes.Datos
             n.Add("Direccion", cliente.Direccion);
             n.Add("Usuario", ConfigurationManager.AppSettings["Legajo"]);
             n.Add("Email", cliente.Email); // STRING
-            //n.Add("Telefono", cliente.Telefono.ToString()); // INT
+            n.Add("Telefono", cliente.Telefono.ToString()); // INT
             n.Add("FechaNacimiento", cliente.FechaNacimiento.ToShortDateString()); // DateTime
             n.Add("Activo", cliente.Activo.ToString()); // bool
+            n.Add("id", cliente.ID.ToString());
             return n;
         }
 

@@ -17,13 +17,8 @@ namespace EjercicioClientes.Entidades.Entidades
         }
         public static double CalcularComisionDe (List <Prestamo> prestamos)
         {
-            double interes = 0;
-            foreach (Prestamo prestamo in prestamos)
-            {
-                interes += prestamo.CuotaInteres();
-            }
-                return interes* porcentajeComision;
-            }
+            return prestamos.Sum(p => p.InteresTotal()) * porcentajeComision;
+        }
            
         }
         

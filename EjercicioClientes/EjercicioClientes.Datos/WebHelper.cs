@@ -34,6 +34,20 @@ namespace EjercicioClientes.Datos
 
             return responseString;
         }
+        public static string Put(string url, NameValueCollection parametros)
+        {
+            string uri = rutaBase + url;
+
+            try
+            {
+                var response = client.UploadValues(uri, "PUT", parametros);
+                return Encoding.Default.GetString(response);
+            }
+            catch (Exception ex)
+            {
+                return "{ \"isOk\":false,\"id\":-1,\"error\":'" + ex.Message + "'}";
+            }
+        }
 
         public static string Post(string url, NameValueCollection parametros)
         {

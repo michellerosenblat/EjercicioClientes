@@ -15,7 +15,7 @@ namespace EjercicioClientes.Entidades
         [DataMember]
         private string descripcion;
         [DataMember]
-        private int saldo;
+        private double saldo;
         [DataMember]
         private DateTime fechaApertura;
         [DataMember]
@@ -31,7 +31,7 @@ namespace EjercicioClientes.Entidades
         {
 
         }
-        public Cuenta (int nroCuenta, string descripcion, int saldo, DateTime fechaApertura, DateTime fechaModificacion, bool activo, int idCliente, int id)
+        public Cuenta (int nroCuenta, string descripcion, double saldo, DateTime fechaApertura, DateTime fechaModificacion, bool activo, int idCliente, int id)
         {
             this.nroCuenta = nroCuenta;
             this.descripcion = descripcion;
@@ -76,7 +76,7 @@ namespace EjercicioClientes.Entidades
                 this.descripcion = value;
             }
         }
-        public int Saldo
+        public double Saldo
         {
             get
             {
@@ -146,7 +146,7 @@ namespace EjercicioClientes.Entidades
 
         public override string ToString()
         {
-            return nroCuenta + " " + descripcion + " " + idCliente;
+            return "Cliente: " + idCliente + " " + nroCuenta + " " + descripcion;
         }
 
 

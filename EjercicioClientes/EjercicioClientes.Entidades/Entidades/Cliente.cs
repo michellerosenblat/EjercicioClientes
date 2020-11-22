@@ -30,6 +30,7 @@ namespace EjercicioClientes.Entidades
         private DateTime fechaNacimiento;
         [DataMember]
         private bool activo;
+        private Cuenta cuenta;
 
         public Cliente ()
         {
@@ -47,13 +48,25 @@ namespace EjercicioClientes.Entidades
             this.activo = activo;
         }
 
-        public Cliente (int id, string nombre, string apellido, string direccion, string telefono)
+        public Cliente (int id, string nombre, string apellido, string direccion, string telefono, string email)
         {
             this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.direccion = direccion;
             this.telefono = telefono;
+            this.email = email;
+        }
+        public Cuenta Cuenta
+        {
+            get
+            {
+                return this.cuenta;
+            }
+            set
+            {
+                this.cuenta = value;
+            }
         }
         public string Nombre
         {

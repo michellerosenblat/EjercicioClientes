@@ -12,26 +12,37 @@ namespace EjercicioClientes.Negocio
     public class ClienteServicio
     {
         private ClienteMapper mapper;
+        private CuentaServicio cuentaServicio;
+        private static List<Cliente> cacheClientes;
         public ClienteServicio()
         {
             mapper = new ClienteMapper();
+            cuentaServicio = new CuentaServicio();
+            RefrescarCache();
         }
 
         public List<Cliente> TraerClientes()
         {
-            return mapper.TraerTodos();
+            return cacheClientes;
         }
-
+        public void RefrescarCache()
+        {
+            cacheClientes = mapper.TraerTodos();
+            AsignarCuentasAClientes();
+        }
+        public void AsignarCuentasAClientes()
+        {
+            List<Cuenta> cuentas = cuentaServicio.TraerCuentas();
+            cacheClientes.ForEach(c => c.Cuenta = cuentas.FirstOrDefault(x => x.IdCliente == c.ID));
+        }
+        public List <Cliente> TraerClientesConCuenta()
+        {
+            return cacheClientes.Where(c => c.Cuenta != null).ToList();
+        }
         public Cliente TraerClientesPorId(int id)
         {
             List<Cliente> result = mapper.TraerTodos();
-            Cliente cli = null;
-            foreach (Cliente c in result)
-            {
-                if (c.ID == id)
-                    cli = c;
-            }
-            return cli;
+            return result.SingleOrDefault(c => c.ID == id);
 
         }
 
@@ -51,12 +62,26 @@ namespace EjercicioClientes.Negocio
             {
                 TransactionResult resultante = mapper.Insert(cliente);
                 if (!resultante.IsOk)
+                {
                     throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultante.Error);
-                
-
-                    
+                }
+                else
+                {
+                    RefrescarCache();
+                }     
             }
-
+        }
+        public void Update(Cliente cliente)
+        {
+            TransactionResult result = mapper.Update(cliente);
+            if (!result.IsOk)
+            {
+                throw new Exception("Hubo un error en la petición al servidor. Detalle: " + result.Error);
+            }
+            else
+            {
+                RefrescarCache();
+            }
         }
         public int ProximoId()
         {

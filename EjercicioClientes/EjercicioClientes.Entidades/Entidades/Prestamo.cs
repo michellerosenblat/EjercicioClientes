@@ -13,7 +13,6 @@ namespace EjercicioClientes.Entidades.Entidades
         private double monto;
         private string usuario;
         private int idCliente;
-
         public Prestamo() { }
         public Prestamo(TipoPrestamo tipoPrestamo, double monto, int plazo)
         {
@@ -102,6 +101,10 @@ namespace EjercicioClientes.Entidades.Entidades
         public double Cuota()
         {
             return CuotaCapital() + CuotaInteres();
+        }
+        public double InteresTotal()
+        {
+            return (CuotaInteres() * plazo) / 100;
         }
         public override string ToString()
         {

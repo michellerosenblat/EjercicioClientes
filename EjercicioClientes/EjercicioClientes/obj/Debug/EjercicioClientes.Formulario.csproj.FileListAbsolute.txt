@@ -41,3 +41,4 @@ C:\Users\Michele Rosenblat\Documents\GitHub\EjercicioClientes\EjercicioClientes\
 C:\Users\Michele Rosenblat\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.exe
 C:\Users\Michele Rosenblat\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.pdb
 C:\Users\Michele Rosenblat\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.PrestamoForm.resources
+C:\Users\Michele Rosenblat\Documents\GitHub\EjercicioClientes\EjercicioClientes\EjercicioClientes\obj\Debug\EjercicioClientes.ModificarSaldoForm.resources
