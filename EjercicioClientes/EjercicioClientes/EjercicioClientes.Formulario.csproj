@@ -59,6 +59,12 @@
     <Compile Include="AltaCuentaForm.Designer.cs">
       <DependentUpon>AltaCuentaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AltaTarjetaCreditoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaTarjetaCreditoForm.Designer.cs">
+      <DependentUpon>AltaTarjetaCreditoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarSaldoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AltaCuentaForm.resx">
       <DependentUpon>AltaCuentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaTarjetaCreditoForm.resx">
+      <DependentUpon>AltaTarjetaCreditoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

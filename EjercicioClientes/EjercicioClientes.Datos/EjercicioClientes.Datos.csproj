@@ -68,6 +68,7 @@
     <Compile Include="CuentaMapper.cs" />
     <Compile Include="MailMapper.cs" />
     <Compile Include="PrestamoMapper.cs" />
+    <Compile Include="TCMapper.cs" />
     <Compile Include="TipoPrestamoMapper.cs" />
     <Compile Include="WebHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

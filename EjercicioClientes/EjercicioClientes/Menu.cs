@@ -96,5 +96,13 @@ namespace EjercicioClientes
             if (this.Visible)
             lstClientes.DataSource = cliente.TraerClientes();
         }
+
+        private void btnTarjtaCredito_Click(object sender, EventArgs e)
+        {
+            AltaTarjetaCreditoForm altaTarjeta = new AltaTarjetaCreditoForm();
+            altaTarjeta.Owner = this;
+            altaTarjeta.Show();
+            this.Hide();
+        }
     }
 }

@@ -46,13 +46,19 @@
     <Compile Include="Entidades\Cuenta.cs" />
     <Compile Include="Entidades\Operador.cs" />
     <Compile Include="Entidades\Prestamo.cs" />
+    <Compile Include="Entidades\TCAmex.cs" />
+    <Compile Include="Entidades\TCMaster.cs" />
+    <Compile Include="Entidades\TCVisa.cs" />
     <Compile Include="Entidades\TipoPrestamo.cs" />
+    <Compile Include="Enum\PeriodoVencimiento.cs" />
+    <Compile Include="Enum\TipoTarjetaEnum.cs" />
     <Compile Include="Excepciones\ClienteExistenteException.cs" />
     <Compile Include="Excepciones\CuentaExistenteException.cs" />
     <Compile Include="Excepciones\NoEsDatoEsperadoException.cs" />
     <Compile Include="Excepciones\SaldoNegativoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entidades\TransactionResult.cs" />
+    <Compile Include="Entidades\TarjetaCredito.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

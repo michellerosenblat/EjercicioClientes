@@ -46,6 +46,7 @@
     <Compile Include="MailServicio.cs" />
     <Compile Include="PrestamoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TCServicio.cs" />
     <Compile Include="TipoPrestamoServicio.cs" />
   </ItemGroup>
   <ItemGroup>

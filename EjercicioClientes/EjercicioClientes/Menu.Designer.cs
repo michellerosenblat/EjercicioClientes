@@ -37,6 +37,7 @@
             this.btnPrestamos = new System.Windows.Forms.Button();
             this.btnModificarSaldo = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
+            this.btnTarjtaCredito = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // altaClientes
@@ -72,7 +73,7 @@
             // 
             // btnAltaCuenta
             // 
-            this.btnAltaCuenta.Location = new System.Drawing.Point(708, 46);
+            this.btnAltaCuenta.Location = new System.Drawing.Point(611, 53);
             this.btnAltaCuenta.Name = "btnAltaCuenta";
             this.btnAltaCuenta.Size = new System.Drawing.Size(245, 60);
             this.btnAltaCuenta.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // btnListarCuentas
             // 
-            this.btnListarCuentas.Location = new System.Drawing.Point(708, 145);
+            this.btnListarCuentas.Location = new System.Drawing.Point(611, 152);
             this.btnListarCuentas.Name = "btnListarCuentas";
             this.btnListarCuentas.Size = new System.Drawing.Size(245, 60);
             this.btnListarCuentas.TabIndex = 4;
@@ -94,14 +95,14 @@
             // 
             this.lstCuentas.FormattingEnabled = true;
             this.lstCuentas.ItemHeight = 20;
-            this.lstCuentas.Location = new System.Drawing.Point(628, 242);
+            this.lstCuentas.Location = new System.Drawing.Point(498, 242);
             this.lstCuentas.Name = "lstCuentas";
             this.lstCuentas.Size = new System.Drawing.Size(441, 144);
             this.lstCuentas.TabIndex = 5;
             // 
             // btnPrestamos
             // 
-            this.btnPrestamos.Location = new System.Drawing.Point(494, 77);
+            this.btnPrestamos.Location = new System.Drawing.Point(1065, 60);
             this.btnPrestamos.Name = "btnPrestamos";
             this.btnPrestamos.Size = new System.Drawing.Size(124, 46);
             this.btnPrestamos.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             // btnModificarSaldo
             // 
-            this.btnModificarSaldo.Location = new System.Drawing.Point(628, 436);
+            this.btnModificarSaldo.Location = new System.Drawing.Point(498, 436);
             this.btnModificarSaldo.Name = "btnModificarSaldo";
             this.btnModificarSaldo.Size = new System.Drawing.Size(245, 47);
             this.btnModificarSaldo.TabIndex = 7;
@@ -129,11 +130,22 @@
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
+            // btnTarjtaCredito
+            // 
+            this.btnTarjtaCredito.Location = new System.Drawing.Point(1065, 128);
+            this.btnTarjtaCredito.Name = "btnTarjtaCredito";
+            this.btnTarjtaCredito.Size = new System.Drawing.Size(124, 39);
+            this.btnTarjtaCredito.TabIndex = 9;
+            this.btnTarjtaCredito.Text = "Tarjeta Crédito";
+            this.btnTarjtaCredito.UseVisualStyleBackColor = true;
+            this.btnTarjtaCredito.Click += new System.EventHandler(this.btnTarjtaCredito_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 575);
+            this.ClientSize = new System.Drawing.Size(1260, 575);
+            this.Controls.Add(this.btnTarjtaCredito);
             this.Controls.Add(this.btnModificarCliente);
             this.Controls.Add(this.btnModificarSaldo);
             this.Controls.Add(this.btnPrestamos);
@@ -161,6 +173,7 @@
         private System.Windows.Forms.Button btnPrestamos;
         private System.Windows.Forms.Button btnModificarSaldo;
         private System.Windows.Forms.Button btnModificarCliente;
+        private System.Windows.Forms.Button btnTarjtaCredito;
     }
 }
 
